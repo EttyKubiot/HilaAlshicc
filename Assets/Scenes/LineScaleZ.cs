@@ -18,7 +18,7 @@ public class LineScaleZ : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (/*!isObjectAlreadyScaled &&*/ transform.localScale.x <= 2.1f)
+        if (/*!isObjectAlreadyScaled &&*/ transform.localScale.x <= 2.0f)
         {
             startPosition += eventData.delta;
             Color tmp = GetComponent<Image>().color;
