@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler/*,*/ /*IEndDragHandler*/
+public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private GameManager gameManager;
 
@@ -33,13 +33,17 @@ public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler/*,*/ /*I
 
             // Set scale to the new Vector3.
             transform.localScale = newScale;
-            gameManager.OnDraw?.Invoke();
+          
             //    transform.localScale =  (Vector3)scalingAmount * scalingFactor;
         }
+        //if (transform.localScale.x >= 1.4f)
+        //{
+          
+        //}
     }
 
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    isObjectAlreadyScaled = true;
-    //}
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        gameManager.OnDraw?.Invoke();
+    }
 }

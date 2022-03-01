@@ -18,8 +18,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void EndDrawLines()
     {
-        numDraw++;
-        if(numDraw >= 6)
+       
+        if(numDraw < 6)
+        {
+            numDraw = numDraw+1;
+            Debug.Log(numDraw);
+            return;
+        }
+        else
         {
             for (int i = 0; i < lineMistake.Length; i++)
             {
