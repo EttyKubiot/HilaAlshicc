@@ -7,9 +7,14 @@ using UnityEngine.UI;
 
 public class LineScaleZ : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
+    [SerializeField] private GameManager gameManager;
     private Vector2 startPosition;
 
     //private bool isObjectAlreadyScaled = false;
+    private void Start()
+    {
+        
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -31,6 +36,7 @@ public class LineScaleZ : MonoBehaviour, IBeginDragHandler, IDragHandler
 
             // Set scale to the new Vector3.
             transform.localScale = newScale;
+            gameManager.OnDraw?.Invoke();
             //    transform.localScale =  (Vector3)scalingAmount * scalingFactor;
         }
     }
