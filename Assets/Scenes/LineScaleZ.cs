@@ -4,12 +4,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler/*,*/ /*IEndDragHandler*/
-{
 
-    
+public class LineScaleZ : MonoBehaviour, IBeginDragHandler, IDragHandler
+{
     private Vector2 startPosition;
-   
+
     //private bool isObjectAlreadyScaled = false;
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -19,8 +18,7 @@ public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler/*,*/ /*I
 
     public void OnDrag(PointerEventData eventData)
     {
-       
-        if (/*!isObjectAlreadyScaled &&*/ transform.localScale.x <= 1.4f)
+        if (/*!isObjectAlreadyScaled &&*/ transform.localScale.x <= 2.1f)
         {
             startPosition += eventData.delta;
             Color tmp = GetComponent<Image>().color;
@@ -37,8 +35,4 @@ public class LineScale : MonoBehaviour, IBeginDragHandler, IDragHandler/*,*/ /*I
         }
     }
 
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    isObjectAlreadyScaled = true;
-    //}
 }
